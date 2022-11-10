@@ -3,7 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import path from "path";
 // import rutas from "./routes/receta.routes";
-// import "./database";
+import "./database.js";
 const app = express();
 
 app.set("port", process.env.PORT || 4000);
@@ -18,5 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../public")));
 
+
 //http://localhost:4000
-// app.use("/apireceta", rutas);
+app.get("/productos", (req,res)=>{
+    res.send("Esto es una prueba de la peticion GET")
+})
